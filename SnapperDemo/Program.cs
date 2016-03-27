@@ -1,11 +1,11 @@
-﻿using System;
-using System.Windows.Forms;
-using Snapper;
-using SnapperDemo;
-using TinyIoC;
-
-namespace SanpperDemo
+﻿namespace SanpperDemo
 {
+    using System;
+    using System.Windows.Forms;
+    using Snapper;
+    using SnapperDemo;
+    using TinyIoC;
+
     static class Program
     {
         /// <summary>
@@ -21,7 +21,7 @@ namespace SanpperDemo
             container.Register<PluginManager<IDataSourcePlugin>>("DataSourcePlugin").AsSingleton();
             container.Register<PluginManager<IPlugin>>("Plugin").AsSingleton();
 
-            Application.Run(new PluginFrameworkTestForm());
+            Application.Run(new SnapperDemoForm());
         }
     }
 }

@@ -7,20 +7,20 @@
     using TinyIoC;
     using TinyMessenger;
 
-    public partial class PluginFrameworkTestForm : Form
+    public partial class SnapperDemoForm : Form
     {
         TinyIoCContainer container = TinyIoCContainer.Current;
         ITinyMessengerHub messengerHub;
 
         PluginManager<IDataSourcePlugin> pluginManager;
 
-        public PluginFrameworkTestForm()
+        public SnapperDemoForm()
         {
             InitializeComponent();
             messengerHub = container.Resolve<ITinyMessengerHub>();
 
             RefreshPlugins();
-            messengerHub.Subscribe<NewPluginDetected>((s) => { RefreshPlugins(); }, new SnapperDemoPlumbing.ControlInvokeTinyMessageProxy(this));
+            messengerHub.Subscribe<NewPluginDetected>((s) => { RefreshPlugins(); }, new ControlInvokeTinyMessageProxy(this));
         }
 
         private void RefreshPlugins()

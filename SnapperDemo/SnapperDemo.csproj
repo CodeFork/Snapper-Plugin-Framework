@@ -47,17 +47,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IDataSourcePlugin.cs" />
-    <Compile Include="PluginFrameworkTestForm.cs">
+    <Compile Include="SnapperDemoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PluginFrameworkTestForm.Designer.cs">
-      <DependentUpon>PluginFrameworkTestForm.cs</DependentUpon>
+    <Compile Include="SnapperDemoForm.Designer.cs">
+      <DependentUpon>SnapperDemoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TabbedPlugin.cs" />
-    <EmbeddedResource Include="PluginFrameworkTestForm.resx">
-      <DependentUpon>PluginFrameworkTestForm.cs</DependentUpon>
+    <Compile Include="DataSourcePlugin.cs" />
+    <EmbeddedResource Include="SnapperDemoForm.resx">
+      <DependentUpon>SnapperDemoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

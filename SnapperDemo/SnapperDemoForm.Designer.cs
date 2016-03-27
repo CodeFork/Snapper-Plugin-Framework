@@ -1,6 +1,6 @@
 ﻿namespace SnapperDemo
 {
-    partial class PluginFrameworkTestForm
+    partial class SnapperDemoForm
     {
         /// <summary>
         /// Required designer variable.

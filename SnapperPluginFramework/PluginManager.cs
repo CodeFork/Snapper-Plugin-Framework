@@ -6,19 +6,43 @@
     using System.IO;
     using System.Reflection;
 
+    /// <summary>
+    /// Class PluginManager. 
+    /// </summary>
+    /// <typeparam name="T">The expected interface that this plugin implements; 
+    /// must be an interface and must descend from or implement <see cref="IPlugin"/>.</typeparam>
+    /// <remarks>Note: checking that T is an interface is done at runtime.</remarks>
     public class PluginManager<T>
+        where T : class, IPlugin
     {
         private FileSystemWatcher fileSystemWatcher;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PluginManager{T}"/> class.
+        /// </summary>
         public PluginManager()
         {
             PluginList = new List<IPlugin>();
         }
 
+        /// <summary>
+        /// Gets the folder where the plugins reside.
+        /// </summary>
+        /// <value>The folder where the plugins reside.</value>
         public string PluginFolder { get; private set; }
 
+        /// <summary>
+        /// Gets the list of loaded plugins.
+        /// </summary>
+        /// <value>The list of plugin that have been loaded into this plugin manager.</value>
         public List<IPlugin> PluginList { get; private set; }
 
+        /// <summary>
+        /// Finds the plugins in the supplied folder.
+        /// </summary>
+        /// <param name="pluginFolder">The plugin folder in which to search for plugins.</param>
+        /// <returns>PluginManager&lt;T&gt; for fluent API.</returns>
+        /// <exception cref="DirectoryNotFoundException"></exception>
         public PluginManager<T> FindPluginsInFolder(string pluginFolder = null)
         {
             if (Directory.Exists(pluginFolder))
@@ -40,6 +64,13 @@
             return this;
         }
 
+        /// <summary>
+        /// Loads and initializes the plugins that have been found.
+        /// </summary>
+        /// <param name="initializePlugin">The <see cref="Action<T>"/> which is run to initialize the plugins as they are loaded.</param>
+        /// <returns>PluginManager&lt;T&gt; for fluent API.</returns>
+        /// <exception cref="BadImageFormatException"></exception>
+        /// <exception cref="FileLoadException"></exception>
         public PluginManager<T> LoadPlugins(Action<T> initializePlugin)
         {
             string[] files = Directory.GetFiles(PluginFolder, "*.dll", SearchOption.TopDirectoryOnly);
@@ -56,21 +87,24 @@
                         }
                     }
                 }
-                catch (Exception ex)
+                catch (BadImageFormatException ex)
                 {
-
+                    // log exception
+                }
+                catch (FileLoadException ex)
+                {
+                    // log exception
                 }
             }
 
             return this;
         }
 
-        private bool AssemblyLoaded(string file)
-        {
-            IEnumerable<IPlugin> plugins = from p in PluginList where p.Assembly.Location.ToLower() == file.ToLower() select p;
-            return plugins.Count<IPlugin>() > 0;
-        }
-
+        /// <summary>
+        /// Checks for new plugins when a file is added to the watched directory.
+        /// </summary>
+        /// <param name="eventHandler">The <see cref="FileSystemEventArgs"/> event handler.</param>
+        /// <returns>PluginManager&lt;T&gt; for fluent API.</returns>
         public PluginManager<T> RefreshUsingFileSystemWatcher(FileSystemEventHandler eventHandler)
         {
             if (fileSystemWatcher == null)
@@ -101,6 +135,12 @@
             };
             PluginList.Add(plugin);
             plugin.Loaded = true;
+        }
+
+        private bool AssemblyLoaded(string file)
+        {
+            IEnumerable<IPlugin> plugins = from p in PluginList where p.Assembly.Location.ToLower() == file.ToLower() select p;
+            return plugins.Count<IPlugin>() > 0;
         }
 
         private void LoadAssembly(Action<T> initializePlugin, Assembly assembly)

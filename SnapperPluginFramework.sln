@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnapperDemoPlumbing", "Snap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnapperPluginFramework", "SnapperPluginFramework\SnapperPluginFramework.csproj", "{EB774BB5-572B-450F-A653-8AB36C1395EC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{A6A0730F-DF0A-4226-94E2-04B67710D568}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7FD94F73-D0BF-4748-B371-8A136FA80D50} = {A6A0730F-DF0A-4226-94E2-04B67710D568}
+		{863D3702-333A-46AE-A1EA-390EF4AAB4EB} = {A6A0730F-DF0A-4226-94E2-04B67710D568}
+		{84900A3D-0475-4583-A48F-EA5DF4116218} = {A6A0730F-DF0A-4226-94E2-04B67710D568}
+		{B24B4F1B-F674-4E50-8398-DD86CF53E9C3} = {A6A0730F-DF0A-4226-94E2-04B67710D568}
 	EndGlobalSection
 EndGlobal
