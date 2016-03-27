@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginX", "PluginX\PluginX.csproj", "{7FD94F73-D0BF-4748-B371-8A136FA80D50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginZ", "PluginZ\PluginZ.csproj", "{863D3702-333A-46AE-A1EA-390EF4AAB4EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnapperDemo", "SnapperDemo\SnapperDemo.csproj", "{84900A3D-0475-4583-A48F-EA5DF4116218}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnapperDemoPlumbing", "SnapperDemoPlumbing\SnapperDemoPlumbing.csproj", "{B24B4F1B-F674-4E50-8398-DD86CF53E9C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnapperPluginFramework", "SnapperPluginFramework\SnapperPluginFramework.csproj", "{EB774BB5-572B-450F-A653-8AB36C1395EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FD94F73-D0BF-4748-B371-8A136FA80D50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FD94F73-D0BF-4748-B371-8A136FA80D50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FD94F73-D0BF-4748-B371-8A136FA80D50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FD94F73-D0BF-4748-B371-8A136FA80D50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{863D3702-333A-46AE-A1EA-390EF4AAB4EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{863D3702-333A-46AE-A1EA-390EF4AAB4EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{863D3702-333A-46AE-A1EA-390EF4AAB4EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{863D3702-333A-46AE-A1EA-390EF4AAB4EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84900A3D-0475-4583-A48F-EA5DF4116218}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84900A3D-0475-4583-A48F-EA5DF4116218}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84900A3D-0475-4583-A48F-EA5DF4116218}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84900A3D-0475-4583-A48F-EA5DF4116218}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B24B4F1B-F674-4E50-8398-DD86CF53E9C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B24B4F1B-F674-4E50-8398-DD86CF53E9C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B24B4F1B-F674-4E50-8398-DD86CF53E9C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B24B4F1B-F674-4E50-8398-DD86CF53E9C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB774BB5-572B-450F-A653-8AB36C1395EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB774BB5-572B-450F-A653-8AB36C1395EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB774BB5-572B-450F-A653-8AB36C1395EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB774BB5-572B-450F-A653-8AB36C1395EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
