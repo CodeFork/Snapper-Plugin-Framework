@@ -41,7 +41,7 @@
         /// Finds the plugins in the supplied folder.
         /// </summary>
         /// <param name="pluginFolder">The plugin folder in which to search for plugins.</param>
-        /// <returns>PluginManager&lt;T&gt; for fluent API.</returns>
+        /// <returns>PluginManager&lt;T&gt; for fluent interface.</returns>
         /// <exception cref="DirectoryNotFoundException"></exception>
         public PluginManager<T> FindPluginsInFolder(string pluginFolder = null)
         {
@@ -68,11 +68,14 @@
         /// Loads and initializes the plugins that have been found.
         /// </summary>
         /// <param name="initializePlugin">The <see cref="Action<T>"/> which is run to initialize the plugins as they are loaded.</param>
-        /// <returns>PluginManager&lt;T&gt; for fluent API.</returns>
+        /// <returns>PluginManager&lt;T&gt; for fluent interface.</returns>
         /// <exception cref="BadImageFormatException"></exception>
         /// <exception cref="FileLoadException"></exception>
         public PluginManager<T> LoadPlugins(Action<T> initializePlugin)
         {
+            if (String.IsNullOrEmpty(PluginFolder))
+                FindPluginsInFolder(null);
+
             string[] files = Directory.GetFiles(PluginFolder, "*.dll", SearchOption.TopDirectoryOnly);
             foreach (string file in files)
             {
@@ -104,7 +107,7 @@
         /// Checks for new plugins when a file is added to the watched directory.
         /// </summary>
         /// <param name="eventHandler">The <see cref="FileSystemEventArgs"/> event handler.</param>
-        /// <returns>PluginManager&lt;T&gt; for fluent API.</returns>
+        /// <returns>PluginManager&lt;T&gt; for fluent interface.</returns>
         public PluginManager<T> RefreshUsingFileSystemWatcher(FileSystemEventHandler eventHandler)
         {
             if (fileSystemWatcher == null)
